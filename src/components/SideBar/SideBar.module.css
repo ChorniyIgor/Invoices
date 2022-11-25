@@ -1,0 +1,34 @@
+.SideBar {
+  width: 103px;
+  min-width: 103px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Logo {
+  max-width: 103px;
+  position: relative;
+  z-index: 1;
+}
+
+.SideBarContent {
+  background: #373b53;
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.SideBarContent:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  background: #373b53;
+  width: 100%;
+  height: 15px;
+  display: block;
+}
