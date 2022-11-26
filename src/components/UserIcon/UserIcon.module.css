@@ -1,2 +1,18 @@
 .UserIcon {
+  padding: 24px;
+  position: relative;
+}
+.UserIcon:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: red;
+  top: 0px;
+  left: 0px;
+}
+.UserIcon img {
+  width: 40px;
+  height: 40px;
 }
