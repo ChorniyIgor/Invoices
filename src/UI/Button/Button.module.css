@@ -1,0 +1,49 @@
+.Button {
+  border-radius: 24px;
+  padding: 17px 23px;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.Button .Icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.ButtonWithIcon {
+  padding: 8px 17px 8px 8px;
+}
+
+.Button .Icon img {
+  width: 10px;
+  height: 10px;
+}
+
+.DefaultColor {
+  background: #7c5dfa;
+  color: #ffffff;
+}
+
+.DefaultColor:hover {
+  background: #9277ff;
+}
+
+.DefaultColor .Icon {
+  background: white;
+}

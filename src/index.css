@@ -45,3 +45,8 @@ h4 {
   font-size: 12px;
   line-height: 15px;
 }
+
+button,
+input {
+  font-family: "League Spartan", sans-serif;
+}

@@ -1,5 +1,12 @@
 .TopBar {
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
+}
+
+.TopBarControls {
+  display: flex;
+  align-items: center;
+}
+.TopBarControls button {
+  margin-left: 40px;
 }

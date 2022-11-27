@@ -1,0 +1,29 @@
+.AddInvoiceForm h3 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: -0.375px;
+  color: #777f98;
+  margin-top: 32px;
+}
+.AddInvoiceForm h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #7c5dfa;
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.AddInvoiceForm__TwoRows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+}
+.AddInvoiceForm__TreeRows {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
+}

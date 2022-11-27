@@ -6,4 +6,42 @@
   padding: 29px 32px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.InvoiceItemId {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+  color: #0c0e16;
+}
+
+.InvoiceItemDate {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+  color: #7e88c3;
+}
+
+.InvoiceItemName {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+  color: #858bb2;
+}
+
+.InvoiceItemPrice {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.8px;
+  color: #0c0e16;
 }

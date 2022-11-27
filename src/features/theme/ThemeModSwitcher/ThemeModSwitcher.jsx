@@ -1,8 +1,9 @@
 import icon from "../../../assets/themeIcon.png";
+import styles from "./ThemeModSwitcher.module.css";
 
 const ThemeModSwitcher = () => {
   return (
-    <div>
+    <div className={styles.ThemeModSwitcher}>
       <img src={icon} alt="Theme switch" />
     </div>
   );

@@ -1,13 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  invoices: [],
-};
+const invoicesAdapter = createEntityAdapter({
+  selectId: (invoice) => invoice.id,
+});
 
 const invoicesSlice = createSlice({
-  name: "invoices",
-  initialState,
-  reducers: {},
+  name: "@@invoices",
+  initialState: invoicesAdapter.getInitialState(),
+  reducers: {
+    loadInvoices: (state, action) => {
+      invoicesAdapter.setAll(state, action.payload);
+    },
+  },
 });
+
+export const { loadInvoices } = invoicesSlice.actions;
+
+export const invoicesSelector = invoicesAdapter.getSelectors(
+  (state) => state.invoices
+);
 
 export default invoicesSlice;
