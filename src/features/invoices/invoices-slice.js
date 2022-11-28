@@ -11,10 +11,13 @@ const invoicesSlice = createSlice({
     loadInvoices: (state, action) => {
       invoicesAdapter.setAll(state, action.payload);
     },
+    saveNewInvoice: (state, action) => {
+      invoicesAdapter.addOne(state, action.payload);
+    },
   },
 });
 
-export const { loadInvoices } = invoicesSlice.actions;
+export const { loadInvoices, saveNewInvoice } = invoicesSlice.actions;
 
 export const invoicesSelector = invoicesAdapter.getSelectors(
   (state) => state.invoices

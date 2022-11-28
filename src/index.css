@@ -50,3 +50,29 @@ button,
 input {
   font-family: "League Spartan", sans-serif;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  margin-left: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dfe3fa;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dfe3fa;
+}
+
+a {
+  text-decoration: none;
+}

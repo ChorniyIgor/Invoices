@@ -1,11 +1,17 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
 
+const defaultValidation = () => true;
+
 export const useInput = (settings) => {
-  const { validate } = settings;
+  const validate = settings.validate || defaultValidation;
+
+  let value = settings.initialValue;
+  if (settings.initialValue === undefined) value = "";
 
   const [input, setInput] = useState({
-    value: "",
-    isValid: false,
+    value: value,
+    isValid: settings.validate ? false : true,
     wasTouched: false,
     isInitialRun: true,
   });
@@ -20,7 +26,7 @@ export const useInput = (settings) => {
     });
   };
 
-  const onIputBlurHandler = () => {
+  const onIputBlurHandler = (evt) => {
     setInput((prevState) => {
       return {
         ...prevState,
@@ -28,6 +34,8 @@ export const useInput = (settings) => {
         isInitialRun: false,
       };
     });
+
+    if (settings.onblur) settings.onblur(evt);
   };
 
   useEffect(() => {
@@ -43,7 +51,6 @@ export const useInput = (settings) => {
     }, 300);
 
     return () => {
-      console.log(id);
       clearTimeout(id);
     };
   }, [validate, input.value, input.isInitialRun]);
@@ -54,6 +61,7 @@ export const useInput = (settings) => {
     wasTouched: input.wasTouched,
     onInputChangeHandler,
     onIputBlurHandler,
-    label: settings.label,
+    label: settings.label || "",
+    id: nanoid(),
   };
 };

@@ -1,0 +1,53 @@
+.TaskList table {
+  margin-bottom: 16px;
+}
+.TaskList td,
+.TaskList th {
+  padding: 0px 8px;
+}
+
+.TaskList td:first-child,
+.TaskList th:first-child {
+  padding-left: 0px;
+}
+
+.TaskList td:last-child,
+.TaskList th:last-child {
+  padding-right: 0px;
+}
+
+.TaskList th {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #7e88c3;
+  text-align: left;
+}
+
+.TaskList input {
+  margin-bottom: 0px;
+}
+
+.TotalPrice {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #888eb0;
+}
+
+.DeleteRow {
+  cursor: pointer;
+  text-align: center;
+}
+
+.DeleteRow:hover {
+  opacity: 0.7;
+}
+.DeleteRow img {
+  width: 13px;
+  height: 16px;
+}

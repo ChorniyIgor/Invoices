@@ -18,7 +18,7 @@ const TopBar = () => {
       <div className={styles.TopBarControls}>
         <Filter />
         <Button
-          type="invoice"
+          view="invoice"
           color="default"
           onClick={onNewInvoiceBtnClickHandler}
         >

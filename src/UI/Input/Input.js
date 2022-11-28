@@ -1,22 +1,30 @@
 import styles from "./Input.module.css";
-import { nanoid } from "@reduxjs/toolkit";
 
-const Input = ({ data }) => {
-  const id = nanoid();
-
+const Input = ({ data, onChange, onBlur }) => {
   let classes = [styles.InputLabel];
   if (data.wasTouched && !data.isValid) {
     classes.push(styles.Invalid);
   }
+
+  const onChangeHandler = (evt) => {
+    data.onInputChangeHandler(evt);
+    if (onChange) onChange(evt);
+  };
+
+  const onBlurHandler = (evt) => {
+    data.onIputBlurHandler(evt);
+    if (onBlur) onBlur(evt);
+  };
+
   return (
-    <label htmlFor={id} className={classes.join(" ")}>
+    <label htmlFor={data.id} className={classes.join(" ")}>
       <span>{data.label}</span>
       <input
         type="text"
         value={data.value}
-        onChange={data.onInputChangeHandler}
-        onBlur={data.onIputBlurHandler}
-        id={id}
+        onChange={onChangeHandler}
+        onBlur={onBlurHandler}
+        id={data.id}
       />
     </label>
   );

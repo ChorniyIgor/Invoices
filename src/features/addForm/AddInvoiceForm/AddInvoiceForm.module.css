@@ -1,3 +1,6 @@
+.AddInvoiceForm {
+  padding-bottom: 20px;
+}
 .AddInvoiceForm h3 {
   font-style: normal;
   font-weight: 700;
@@ -26,4 +29,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 24px;
+}
+.Controls {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  box-shadow: 33px -32px 136px 0px rgba(0, 0, 0, 0.07);
+  padding: 20px 56px;
 }

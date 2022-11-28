@@ -35,6 +35,20 @@
   height: 10px;
 }
 
+.AddBtn {
+  width: 100%;
+}
+
+.LightColor {
+  background: #f9fafe;
+  color: #7e88c3;
+}
+
+.LightColor:hover {
+  background: #dfe3fa;
+  color: #7e88c3;
+}
+
 .DefaultColor {
   background: #7c5dfa;
   color: #ffffff;
