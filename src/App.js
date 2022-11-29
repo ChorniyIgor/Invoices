@@ -1,12 +1,12 @@
 import SideBar from "./components/SideBar/SideBar";
 import styles from "./App.module.css";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import DashBoard from "./components/DashboardContainer/DashboardContainer";
 import { useEffect } from "react";
 import { loadInvoices } from "./features/invoices/invoices-slice";
 import { useDispatch, useSelector } from "react-redux";
 import SideFormBar from "./components/SideFormBar/SideFormBar";
-import AddInvoiceForm from "./features/addForm/AddInvoiceForm/AddInvoiceForm";
+import InvoiceForm from "./features/invoiceForm/InvoiceForm/InvoiceForm";
 import InvoicePage from "./components/InvoicePage/InvoicePage";
 import TopBar from "./components/TopBar/TopBar";
 import InvoicesList from "./features/invoices/InvoicesList/InvoicesList";
@@ -57,9 +57,8 @@ const App = () => {
     dispatch(loadInvoices(DAMMY));
   }, [dispatch]);
 
-  const addInvoiceFormCloseHandler = () => {
+  const invoiceFormCloseHandler = () => {
     navigate(-1);
-    //dispatch(hideAddInvoiceForm());
   };
 
   // const editInvoiceFormCloseHandler = () => {
@@ -76,11 +75,8 @@ const App = () => {
             path="/addInvoice"
             element={
               <>
-                <SideFormBar
-                  hide={addInvoiceFormCloseHandler}
-                  title="New Invoice"
-                >
-                  <AddInvoiceForm />
+                <SideFormBar hide={invoiceFormCloseHandler} title="New Invoice">
+                  <InvoiceForm />
                 </SideFormBar>
                 <DashBoard>
                   <TopBar />
@@ -107,8 +103,21 @@ const App = () => {
               </DashBoard>
             }
           />
+          <Route
+            path="/invoice/:id/edit"
+            element={
+              <>
+                <SideFormBar hide={invoiceFormCloseHandler} title="New Invoice">
+                  <InvoiceForm />
+                </SideFormBar>
+                <DashBoard>
+                  <InvoicePage />
+                </DashBoard>
+              </>
+            }
+          />
 
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
       </div>
     </>

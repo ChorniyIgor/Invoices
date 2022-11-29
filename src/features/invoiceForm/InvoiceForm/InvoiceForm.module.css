@@ -1,6 +1,15 @@
 .AddInvoiceForm {
   padding-bottom: 20px;
 }
+
+.AddInvoiceFormTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  color: #0c0e16;
+}
 .AddInvoiceForm h3 {
   font-style: normal;
   font-weight: 700;

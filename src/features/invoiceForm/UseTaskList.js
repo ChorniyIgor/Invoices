@@ -3,7 +3,7 @@ import { nanoid } from "@reduxjs/toolkit";
 const useTaskList = (setFormState) => {
   const addNewTaskListItemClickHandler = () => {
     setFormState((prevState) => {
-      const newTaskList = prevState.taskList;
+      const newTaskList = [...prevState.taskList];
       newTaskList.push({
         name: "",
         qty: 1,

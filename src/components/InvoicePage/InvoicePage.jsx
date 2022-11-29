@@ -5,7 +5,6 @@ import ShortInvoicesItem from "../../features/invoices/ShortInvoicesItem/ShortIn
 import FullInvoiceInfo from "../../features/invoices/FullInvoiceInfo/FullInvoiceInfo";
 
 import { invoicesSelector } from "../../features/invoices/invoices-slice";
-// import InvoicesList from "../../features/invoices/InvoicesList/InvoicesList";
 
 const InvoicePage = () => {
   const { id } = useParams();

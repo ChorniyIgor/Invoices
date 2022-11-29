@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StatusLabel from "../../../components/StatusLabel/StatusLabel";
 import Button from "../../../UI/Button/Button";
 import { deleteInvoice, markInvoicePaid } from "../invoices-slice";
@@ -24,7 +24,9 @@ const ShortInvoicesItem = (props) => {
       <span className={styles.ShortInvoicesItemStatus}>Status</span>
       <StatusLabel status={props.status} />
       <div className={styles.ShortInvoicesItemControls}>
-        <Button>Edit</Button>
+        <Link to="edit">
+          <Button>Edit</Button>
+        </Link>
         <Button onClick={onDeleteBtnClickHandler}>Delete</Button>
         {props.status !== "paid" && (
           <Button onClick={onPaidBtnClickHandler}>Mark as Paid</Button>

@@ -16,23 +16,10 @@ const initialState = {
     paymentTerms: "",
     projectDescription: "",
   },
-  taskList: [
-    {
-      name: "Banner Design",
-      qty: 1,
-      price: 200,
-      id: 1,
-    },
-    {
-      name: "Banner Design 2",
-      qty: 2,
-      price: 220,
-      id: 2,
-    },
-  ],
+  taskList: [],
 };
 
-const addFormSlice = createSlice({
+const invoiceFormSlice = createSlice({
   name: "@@addForm",
   initialState,
   reducers: {
@@ -47,9 +34,9 @@ const addFormSlice = createSlice({
 });
 
 export const { saveUpdatedTaskList, saveNewFormValue, discardForm } =
-  addFormSlice.actions;
+  invoiceFormSlice.actions;
 
-export const getAddFormFields = (state) => state.addForm.fields;
-export const getAddFormList = (state) => state.addForm.taskList;
+export const getAddFormFields = (state) => state.invoiceForm.fields;
+export const getAddFormList = (state) => state.invoiceForm.taskList;
 
-export default addFormSlice;
+export default invoiceFormSlice;

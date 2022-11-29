@@ -49,7 +49,6 @@ const SideFormBar = (props) => {
       <div className={styles.SideFormBarOverlay} onClick={closeHandler} />
 
       <div className={styles.SideFormBar}>
-        <h2>{props.title}</h2>
         <div className={styles.SideFormBarContent} onScroll={handleScroll}>
           <SideFormContext.Provider value={{ closeHandler }}>
             {props.children}

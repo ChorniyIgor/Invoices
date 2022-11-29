@@ -14,6 +14,13 @@ const invoicesSlice = createSlice({
     saveNewInvoice: (state, action) => {
       invoicesAdapter.addOne(state, action.payload);
     },
+    editInvoice: (state, action) => {
+      const { id, fields, taskList } = action.payload;
+      invoicesAdapter.updateOne(state, {
+        id,
+        changes: { fields, taskList },
+      });
+    },
     markInvoicePaid: (state, action) => {
       const id = action.payload;
 
@@ -31,8 +38,13 @@ const invoicesSlice = createSlice({
   },
 });
 
-export const { loadInvoices, saveNewInvoice, markInvoicePaid, deleteInvoice } =
-  invoicesSlice.actions;
+export const {
+  loadInvoices,
+  saveNewInvoice,
+  editInvoice,
+  markInvoicePaid,
+  deleteInvoice,
+} = invoicesSlice.actions;
 
 export const invoicesSelector = invoicesAdapter.getSelectors(
   (state) => state.invoices
