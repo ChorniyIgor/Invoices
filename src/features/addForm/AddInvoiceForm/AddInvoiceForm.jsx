@@ -1,10 +1,12 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
-import { InvoiceFormControl } from "../../../components/SideFormBar/SideFormBar";
+import {
+  InvoiceFormControl,
+  SideFormContext,
+} from "../../../components/SideFormBar/SideFormBar";
 import Button from "../../../UI/Button/Button";
 import Input from "../../../UI/Input/Input";
-import { hideAddInvoiceForm } from "../../app/app-slice";
 import { saveNewInvoice } from "../../invoices/invoices-slice";
 import useForm from "../useForm";
 import useTaskList from "../UseTaskList";
@@ -33,6 +35,7 @@ const initialState = {
 const AddInvoiceForm = () => {
   const dispatch = useDispatch();
   const [formState, setFormState] = useState(initialState);
+  const FormContext = useContext(SideFormContext);
 
   const saveDataOnBlur = (field, evt) => {
     setFormState((prevState) => {
@@ -68,12 +71,14 @@ const AddInvoiceForm = () => {
   const onDiscardBtnClickHandler = (evt) => {
     evt.preventDefault();
     setFormState(initialState);
-    dispatch(hideAddInvoiceForm());
+    FormContext.closeHandler();
   };
 
   const onDraftSaveBtnClickHandler = (evt) => {
     evt.preventDefault();
     dispatch(saveNewInvoice({ ...formState, id: nanoid(6), status: "draft" }));
+    setFormState(initialState);
+    FormContext.closeHandler();
   };
 
   return (

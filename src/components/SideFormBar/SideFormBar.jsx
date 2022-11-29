@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import styles from "./SideFormBar.module.css";
 
+export const SideFormContext = createContext();
+
 const SideFormBar = (props) => {
-  const classes = [styles.SideFormBarContainer];
+  const [classes, setClasses] = useState([styles.SideFormBarContainer]);
   const [isBottom, setIsBottom] = useState(false);
 
-  if (props.visability) {
-    classes.push(styles.SideFormBarActive);
-  }
+  useEffect(() => {
+    setClasses((prevState) => [...prevState, styles.SideFormBarActive]);
+  }, []);
 
-  if (isBottom) {
-    classes.push(styles.SideFormBarScrolledBottom);
-  }
+  useEffect(() => {
+    if (isBottom) {
+      setClasses((prevState) => [
+        ...prevState,
+        styles.SideFormBarScrolledBottom,
+      ]);
+    } else {
+      setClasses((prevState) =>
+        [...prevState].filter(
+          (item) => item !== styles.SideFormBarScrolledBottom
+        )
+      );
+    }
+  }, [isBottom]);
 
   const handleScroll = (e) => {
     const bottom =
@@ -24,17 +37,24 @@ const SideFormBar = (props) => {
     setIsBottom(false);
   };
 
+  const closeHandler = () => {
+    setClasses((prevState) =>
+      [...prevState].filter((item) => item !== styles.SideFormBarActive)
+    );
+    setTimeout(props.hide, 300);
+  };
+
   return (
     <div className={classes.join(" ")}>
-      <div className={styles.SideFormBarOverlay} onClick={props.hide} />
+      <div className={styles.SideFormBarOverlay} onClick={closeHandler} />
 
       <div className={styles.SideFormBar}>
         <h2>{props.title}</h2>
-        {props.visability && (
-          <div className={styles.SideFormBarContent} onScroll={handleScroll}>
+        <div className={styles.SideFormBarContent} onScroll={handleScroll}>
+          <SideFormContext.Provider value={{ closeHandler }}>
             {props.children}
-          </div>
-        )}
+          </SideFormContext.Provider>
+        </div>
       </div>
     </div>
   );

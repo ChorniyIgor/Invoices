@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
-import { showAddInvoiceForm } from "../../features/app/app-slice";
+import { useNavigate } from "react-router-dom";
 import Filter from "../../features/filter/Filter/Filter";
 import Button from "../../UI/Button/Button";
 import styles from "./TopBar.module.css";
 
 const TopBar = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const onNewInvoiceBtnClickHandler = () => {
-    dispatch(showAddInvoiceForm());
+    navigate("/addInvoice");
   };
   return (
     <div className={styles.TopBar}>

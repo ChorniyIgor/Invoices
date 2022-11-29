@@ -11,6 +11,9 @@
   margin-bottom: 32px;
   padding-left: 16px;
   position: relative;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 .InvoicePageBackBtn::before {
   content: "";

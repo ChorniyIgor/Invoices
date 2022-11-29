@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import StatusLabel from "../../../components/StatusLabel/StatusLabel";
 import Button from "../../../UI/Button/Button";
 import { deleteInvoice, markInvoicePaid } from "../invoices-slice";
@@ -6,11 +7,12 @@ import styles from "./ShortInvoicesItem.module.css";
 
 const ShortInvoicesItem = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onDeleteBtnClickHandler = (evt) => {
     evt.preventDefault();
-    console.log("delete");
     dispatch(deleteInvoice(props.id));
+    navigate("/");
   };
 
   const onPaidBtnClickHandler = (evt) => {

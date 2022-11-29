@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import styles from "./InvoicePage.module.css";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ShortInvoicesItem from "../../features/invoices/ShortInvoicesItem/ShortInvoicesItem";
 import FullInvoiceInfo from "../../features/invoices/FullInvoiceInfo/FullInvoiceInfo";
 
@@ -10,16 +9,25 @@ import { invoicesSelector } from "../../features/invoices/invoices-slice";
 
 const InvoicePage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const invoice = useSelector((state) =>
     invoicesSelector.selectById(state, id)
   );
-  console.log(invoice);
+
+  const onBackClickHandrer = () => {
+    navigate(-1);
+  };
+
+  if (!invoice) return null;
 
   return (
     <div className={styles.InvoicePage}>
-      <Link to="/" className={styles.InvoicePageBackBtn}>
+      <button
+        onClick={onBackClickHandrer}
+        className={styles.InvoicePageBackBtn}
+      >
         Go back
-      </Link>
+      </button>
       <ShortInvoicesItem status={invoice.status} id={invoice.id} />
       <FullInvoiceInfo invoice={invoice} />
     </div>
