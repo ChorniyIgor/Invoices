@@ -1,6 +1,7 @@
 import StatusLabel from "../../../components/StatusLabel/StatusLabel";
 import styles from "./InvoiceItem.module.css";
 import { Link } from "react-router-dom";
+import { getTotalInvoicePrice } from "../invoices-selectors";
 
 const InvoiceItem = (props) => {
   const date = new Date(props.info.fields.invoiceDate).toLocaleDateString(
@@ -12,15 +13,6 @@ const InvoiceItem = (props) => {
     }
   );
 
-  const getTotalInvoicePrice = () => {
-    const initialValue = 0;
-    return props.info.taskList.reduce(
-      (accumulator, currentValue) =>
-        accumulator + currentValue.qty * currentValue.price,
-      initialValue
-    );
-  };
-
   return (
     <Link to={`invoice/${props.info.id}`}>
       <div className={styles.InvoiceItem}>
@@ -30,7 +22,7 @@ const InvoiceItem = (props) => {
           {props.info.fields.clientName}
         </span>
         <span className={styles.InvoiceItemPrice}>
-          £ {getTotalInvoicePrice()}
+          £ {getTotalInvoicePrice(props.info.taskList)}
         </span>
         <StatusLabel status={props.info.status} />
       </div>

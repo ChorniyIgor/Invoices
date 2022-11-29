@@ -1,0 +1,72 @@
+.TaskListBoard {
+  margin-top: 40px;
+}
+
+.TaskListBoard tr th {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: -0.229167px;
+  text-align: left;
+  color: #7e88c3;
+  padding: 16px;
+}
+
+.TaskListBoard tr td {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #0c0e16;
+  padding: 16px;
+}
+
+.TaskListBoard tr td:last-child,
+.TaskListBoard tr th:last-child {
+  text-align: right !important;
+}
+
+.TaskListBoard tr td:nth-child(2),
+.TaskListBoard tr td:nth-child(3),
+.TaskListBoard tr th:nth-child(2),
+.TaskListBoard tr th:nth-child(3) {
+  text-align: center;
+}
+
+.TaskListBoard tr td:nth-child(2),
+.TaskListBoard tr td:nth-child(3) {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #7e88c3;
+}
+
+.TaskListBoard table {
+  width: 100%;
+  background: #f9fafe;
+  padding: 16px 16px 24px 16px;
+}
+
+.TaskListBoardTotal {
+  background: #373b53;
+  padding: 24px 32px;
+  border-radius: 0px 0px 8px 8px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TaskListBoardTotalPrice {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: right;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}

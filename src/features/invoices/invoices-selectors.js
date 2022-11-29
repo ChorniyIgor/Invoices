@@ -9,3 +9,12 @@ export const getFiltratedInvoices = (state) => {
 
   return allInvoices.filter((invoice) => invoice.status === filter);
 };
+
+export const getTotalInvoicePrice = (taskList) => {
+  const initialValue = 0;
+  return taskList.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.qty * currentValue.price,
+    initialValue
+  );
+};

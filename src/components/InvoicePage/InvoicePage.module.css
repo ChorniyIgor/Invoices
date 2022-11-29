@@ -1,0 +1,26 @@
+.InvoicePage {
+}
+.InvoicePageBackBtn {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #0c0e16;
+  display: inline-block;
+  margin-bottom: 32px;
+  padding-left: 16px;
+  position: relative;
+}
+.InvoicePageBackBtn::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  background: url(../../assets/arrow-right.png) no-repeat center;
+  transform: rotate(180deg);
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}

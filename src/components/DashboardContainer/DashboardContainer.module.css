@@ -1,7 +1,9 @@
 .DashboardContainer {
   flex-grow: 1;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 160px;
+  padding-right: 100px;
   padding-top: 72px;
-  background: #f2f2f2;
+  padding-bottom: 72px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }

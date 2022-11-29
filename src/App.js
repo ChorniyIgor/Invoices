@@ -19,19 +19,19 @@ const DAMMY = [
     id: 1,
     status: "pending",
     fields: {
-      streetAdress: "streetAdress",
-      city: "city",
-      postCode: "postCode",
-      country: "country",
+      streetAdress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
       clientName: "Jensen Huang",
-      clientEmail: "clientEmail",
-      clientStreetAddress: "clientStreetAddress",
-      clientCity: "clientCity",
-      clientPostCode: "clientPostCode",
-      clientCountry: "clientCountry",
+      clientEmail: "alexgrim@mail.com",
+      clientStreetAddress: "84 Church Way",
+      clientCity: "Bradford",
+      clientPostCode: "BD1 9PB",
+      clientCountry: "United Kingdom",
       invoiceDate: 1669631850843,
-      paymentTerms: "paymentTerms",
-      projectDescription: "projectDescription",
+      paymentTerms: 1669631850843,
+      projectDescription: "Graphic Design",
     },
     taskList: [
       {
@@ -113,7 +113,6 @@ const App = () => {
             path="/invoice/:id"
             element={
               <DashBoard>
-                <TopBar />
                 <InvoicePage />
               </DashBoard>
             }

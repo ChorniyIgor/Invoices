@@ -14,10 +14,25 @@ const invoicesSlice = createSlice({
     saveNewInvoice: (state, action) => {
       invoicesAdapter.addOne(state, action.payload);
     },
+    markInvoicePaid: (state, action) => {
+      const id = action.payload;
+
+      invoicesAdapter.updateOne(state, {
+        id: id,
+        changes: {
+          status: "paid",
+        },
+      });
+    },
+
+    deleteInvoice: (state, action) => {
+      invoicesAdapter.removeOne(state, action.payload);
+    },
   },
 });
 
-export const { loadInvoices, saveNewInvoice } = invoicesSlice.actions;
+export const { loadInvoices, saveNewInvoice, markInvoicePaid, deleteInvoice } =
+  invoicesSlice.actions;
 
 export const invoicesSelector = invoicesAdapter.getSelectors(
   (state) => state.invoices
