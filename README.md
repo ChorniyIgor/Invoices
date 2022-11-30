@@ -1,8 +1,8 @@
-# Yapona sushi
+# Invoice app
 
-This is an educational project developed as part of the [React.js Сourse 2022 by YouRa Allakhverdov](https://www.udemy.com/course/react-np/).
+My challenge was to build out this invoicing application and get it looking as close to the design as possible.
 
-## Invoice app
+## Table of contents
 
 - [Overview](#overview)
   - [Tasks](#Tasks)
