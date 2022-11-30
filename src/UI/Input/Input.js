@@ -25,6 +25,7 @@ const Input = ({ data, onChange, onBlur }) => {
         onChange={onChangeHandler}
         onBlur={onBlurHandler}
         id={data.id}
+        ref={data.ref || null}
       />
     </label>
   );

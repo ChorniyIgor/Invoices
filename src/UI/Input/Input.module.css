@@ -25,5 +25,9 @@
   margin-bottom: 10px;
 }
 .InputLabel.Invalid input {
-  border: 3px solid red;
+  border: 1px solid #ec5757;
+}
+
+.InputLabel.Invalid span {
+  color: #ec5757;
 }

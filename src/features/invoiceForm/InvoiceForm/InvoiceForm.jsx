@@ -57,6 +57,13 @@ const AddInvoiceForm = () => {
     projectDescriptionInput,
   } = useForm(formState, saveDataOnBlur);
 
+  const requiredFields = [
+    streetAdressInput,
+    clientNameInput,
+    clientEmailInput,
+    projectDescriptionInput,
+  ];
+
   const {
     addNewTaskListItemClickHandler,
     onDeleteTaskListItemClickHandler,
@@ -78,6 +85,13 @@ const AddInvoiceForm = () => {
 
   const onSaveBtnClickHandler = (evt) => {
     evt.preventDefault();
+    const isFormValid = requiredFields.every((item) => item.isValid);
+    if (!isFormValid) {
+      const invalidFields = requiredFields.filter((item) => !item.isValid);
+      invalidFields.forEach((item) => item.setInvalid());
+      invalidFields[0].ref.current.focus();
+      return;
+    }
     dispatch(
       saveNewInvoice({ ...formState, id: nanoid(6), status: "pending" })
     );

@@ -1,5 +1,6 @@
 .TaskList table {
   margin-bottom: 16px;
+  width: 100%;
 }
 .TaskList td,
 .TaskList th {

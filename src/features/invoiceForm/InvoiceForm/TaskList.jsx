@@ -7,6 +7,7 @@ import binIcon from "../../../assets/bin.png";
 const TaskListInput = (props) => {
   const input = useInput({
     initialValue: props.initialValue,
+    type: props.type,
   });
 
   return <Input data={input} onBlur={props.onBlur} />;
@@ -42,6 +43,7 @@ const TaskList = (props) => {
                   key={"qty" + item.id}
                   initialValue={item.qty}
                   onBlur={props.onInputBlurHandler.bind(null, index, "qty")}
+                  type="number"
                 />
               </td>
               <td>
@@ -49,6 +51,7 @@ const TaskList = (props) => {
                   key={"price" + item.id}
                   initialValue={Number.parseFloat(item.price).toFixed(2)}
                   onBlur={props.onInputBlurHandler.bind(null, index, "price")}
+                  type="number"
                 />
               </td>
               <td>

@@ -1,10 +1,11 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const defaultValidation = () => true;
 
 export const useInput = (settings) => {
   const validate = settings.validate || defaultValidation;
+  const ref = useRef();
 
   let value = settings.initialValue;
   if (settings.initialValue === undefined) value = "";
@@ -39,6 +40,15 @@ export const useInput = (settings) => {
     if (settings.onblur) settings.onblur(evt);
   };
 
+  const setInvalid = () => {
+    setInput((prevState) => ({
+      ...prevState,
+      isValid: false,
+      wasTouched: true,
+      isInitialRun: false,
+    }));
+  };
+
   useEffect(() => {
     const id = setTimeout(() => {
       if (!input.isInitialRun) {
@@ -65,5 +75,7 @@ export const useInput = (settings) => {
     label: settings.label || "",
     id: nanoid(),
     type: settings.type || "text",
+    setInvalid,
+    ref,
   };
 };
