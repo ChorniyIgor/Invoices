@@ -1,13 +1,14 @@
-import { getFilterValue } from "../filter/filter-selectors";
 import { invoicesSelector } from "./invoices-slice";
 
-export const getFiltratedInvoices = (state) => {
+export const getFiltratedInvoices = (state, filterParams) => {
   const allInvoices = invoicesSelector.selectAll(state);
-  const filter = getFilterValue(state);
 
-  if (filter === "all") return allInvoices;
+  let filterValues = filterParams.filter((item) => item.checked);
+  filterValues = filterValues.map((item) => item.key);
 
-  return allInvoices.filter((invoice) => invoice.status === filter);
+  if (filterValues.includes("all")) return allInvoices;
+
+  return allInvoices.filter((invoice) => filterValues.includes(invoice.status));
 };
 
 export const getTotalInvoicePrice = (taskList) => {

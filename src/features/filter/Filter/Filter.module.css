@@ -1,0 +1,46 @@
+.Filter {
+  position: relative;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.Filter > span {
+  padding-right: 15px;
+  display: block;
+}
+.Filter > span:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 0px;
+  top: 2px;
+  background: url(../../../assets/arrow-right.png) center no-repeat;
+  background-size: contain;
+  transform: rotate(90deg);
+  transition: all 0.3s;
+}
+
+.Filter.FilterActive > span:after {
+  transform: rotate(-90deg);
+}
+
+.FilterOptions {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  border-radius: 8px;
+  padding: 24px;
+  position: absolute;
+  z-index: 1;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  transform: translate(-24px, 100%);
+}
+
+.FilterOptions label {
+  padding: 2px 0px;
+}

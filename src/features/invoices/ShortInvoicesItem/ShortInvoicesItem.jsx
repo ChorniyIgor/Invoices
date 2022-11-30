@@ -25,11 +25,15 @@ const ShortInvoicesItem = (props) => {
       <StatusLabel status={props.status} />
       <div className={styles.ShortInvoicesItemControls}>
         <Link to="edit">
-          <Button>Edit</Button>
+          <Button color="default">Edit</Button>
         </Link>
-        <Button onClick={onDeleteBtnClickHandler}>Delete</Button>
+        <Button onClick={onDeleteBtnClickHandler} color="delete">
+          Delete
+        </Button>
         {props.status !== "paid" && (
-          <Button onClick={onPaidBtnClickHandler}>Mark as Paid</Button>
+          <Button onClick={onPaidBtnClickHandler} color="active">
+            Mark as Paid
+          </Button>
         )}
       </div>
     </div>

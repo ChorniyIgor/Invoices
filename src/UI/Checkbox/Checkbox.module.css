@@ -1,0 +1,53 @@
+.Checkbox {
+  background: #dfe3fa;
+  border: 1px solid #7c5dfa;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.CheckboxLabel {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.CheckboxTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #0c0e16;
+  cursor: pointer;
+  position: relative;
+  margin-left: 10px;
+}
+
+.CheckboxMainContainer input[type="checkbox"] {
+  display: none;
+}
+
+.CheckboxActive {
+  background: #7c5dfa;
+}
+
+.CheckboxContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+}
+
+.Checkbox .Checked {
+  width: 8px;
+  height: 8px;
+  background: url(../../assets/check.png) no-repeat center;
+  background-size: contain;
+  opacity: 0;
+}
+
+.Checkbox.CheckboxActive .Checked {
+  opacity: 1;
+}

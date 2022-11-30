@@ -49,4 +49,15 @@
   bottom: 0px;
   box-shadow: 33px -32px 136px 0px rgba(0, 0, 0, 0.07);
   padding: 20px 56px;
+  padding-left: 159px;
+  box-sizing: border-box;
+}
+
+.ControlsLeftBtn {
+  margin-right: auto;
+}
+
+.Controls button {
+  margin-left: 4px;
+  margin-right: 4px;
 }

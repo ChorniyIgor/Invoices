@@ -11,11 +11,78 @@ import InvoicePage from "./components/InvoicePage/InvoicePage";
 import TopBar from "./components/TopBar/TopBar";
 import InvoicesList from "./features/invoices/InvoicesList/InvoicesList";
 import { getFiltratedInvoices } from "./features/invoices/invoices-selectors";
+import { getFilterValue } from "./features/filter/filter-selectors";
 
 const DAMMY = [
   {
-    id: 1,
+    id: "kj54po",
     status: "pending",
+    fields: {
+      streetAdress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+      clientName: "Jensen Huang",
+      clientEmail: "alexgrim@mail.com",
+      clientStreetAddress: "84 Church Way",
+      clientCity: "Bradford",
+      clientPostCode: "BD1 9PB",
+      clientCountry: "United Kingdom",
+      invoiceDate: 1669631850843,
+      paymentTerms: 1669631850843,
+      projectDescription: "Graphic Design",
+    },
+    taskList: [
+      {
+        name: "Banner Design",
+        qty: 1,
+        price: 200,
+        id: 1,
+      },
+      {
+        name: "Banner Design 2",
+        qty: 2,
+        price: 220,
+        id: 2,
+      },
+    ],
+  },
+  {
+    id: "k434po",
+    status: "paid",
+    fields: {
+      streetAdress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+      clientName: "Jensen Huang",
+      clientEmail: "alexgrim@mail.com",
+      clientStreetAddress: "84 Church Way",
+      clientCity: "Bradford",
+      clientPostCode: "BD1 9PB",
+      clientCountry: "United Kingdom",
+      invoiceDate: 1669631850843,
+      paymentTerms: 1669631850843,
+      projectDescription: "Graphic Design",
+    },
+    taskList: [
+      {
+        name: "Banner Design",
+        qty: 1,
+        price: 200,
+        id: 1,
+      },
+      {
+        name: "Banner Design 2",
+        qty: 2,
+        price: 220,
+        id: 2,
+      },
+    ],
+  },
+  {
+    id: "kj56ro",
+    status: "draft",
     fields: {
       streetAdress: "19 Union Terrace",
       city: "London",
@@ -50,7 +117,12 @@ const DAMMY = [
 
 const App = () => {
   const dispatch = useDispatch();
-  const filratedInvoices = useSelector(getFiltratedInvoices);
+  const filter = useSelector(getFilterValue);
+
+  const filratedInvoices = useSelector((state) =>
+    getFiltratedInvoices(state, filter)
+  );
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,10 +132,6 @@ const App = () => {
   const invoiceFormCloseHandler = () => {
     navigate(-1);
   };
-
-  // const editInvoiceFormCloseHandler = () => {
-  //   dispatch(hideEditInvoiceForm());
-  // };
 
   return (
     <>

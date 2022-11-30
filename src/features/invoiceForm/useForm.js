@@ -83,7 +83,6 @@ const useForm = (invoice, onInputBlurHandler) => {
   });
 
   const paymentTermsInput = useInput({
-    validate: validate,
     initialValue: invoice.fields.paymentTerms,
     label: "Payment Terms",
     type: "select",

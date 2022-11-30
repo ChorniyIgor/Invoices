@@ -1,28 +1,53 @@
-import { useDispatch } from "react-redux";
-import Select from "../../../UI/Select/Select";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./Filter.module.css";
 
 import { setFilter } from "../filter-slice";
+import { useRef, useState } from "react";
+import useOutsideAlerter from "../../../hooks/useOutsideAlerter";
+import { getFilterValue } from "../filter-selectors";
+import Checkbox from "../../../UI/Checkbox/Checkbox";
 
 const Filter = () => {
   const dispatch = useDispatch();
+  const [showOptions, setShowOptions] = useState(false);
+  const classes = [styles.Filter];
+  if (showOptions) {
+    classes.push(styles.FilterActive);
+  }
 
-  const onFilterChangeHandler = (evt) => {
-    dispatch(setFilter(evt.target.value));
+  const wrapperRef = useRef(null);
+  const onOutSideClickHandler = () => {
+    setShowOptions(false);
+  };
+  useOutsideAlerter(wrapperRef, onOutSideClickHandler);
+
+  const onFilterClickHandler = () => {
+    setShowOptions((prevState) => !prevState);
   };
 
-  const options = [
-    { key: "all", title: "All" },
-    { key: "paid", title: "Paid" },
-    { key: "pending", title: "Pending" },
-    { key: "draft", title: "Draft" },
-  ];
+  const onItemClickHandler = (key, evt) => {
+    dispatch(setFilter({ key, value: evt.target.checked }));
+  };
+
+  const options = useSelector(getFilterValue);
 
   return (
-    <Select
-      onChange={onFilterChangeHandler}
-      options={options}
-      defaultValue="all"
-    />
+    <div className={classes.join(" ")} ref={wrapperRef}>
+      <span onClick={onFilterClickHandler}>Filter by status</span>
+      {showOptions && (
+        <div className={styles.FilterOptions}>
+          {options.map((option) => (
+            <Checkbox
+              key={option.key}
+              id={option.key}
+              checked={option.checked}
+              onChange={onItemClickHandler.bind(this, option.key)}
+              title={option.title}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -63,5 +63,6 @@ export const useInput = (settings) => {
     onIputBlurHandler,
     label: settings.label || "",
     id: nanoid(),
+    type: settings.type || "text",
   };
 };

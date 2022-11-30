@@ -16,6 +16,9 @@
   cursor: pointer;
   transition: all 0.2s;
 }
+.Button:hover {
+  opacity: 0.7;
+}
 .Button .Icon {
   width: 32px;
   height: 32px;
@@ -24,6 +27,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 15px;
+  background: white;
 }
 
 .ButtonWithIcon {
@@ -49,15 +53,26 @@
   color: #7e88c3;
 }
 
-.DefaultColor {
+.InvoiceColor {
   background: #7c5dfa;
   color: #ffffff;
 }
 
-.DefaultColor:hover {
+.DeleteColor {
+  background: #ec5757;
+  color: #ffffff;
+}
+
+.GreyColor {
+  background: #373b53;
+  color: #888eb0;
+}
+
+.InvoiceColor:hover {
   background: #9277ff;
 }
 
-.DefaultColor .Icon {
-  background: white;
+.DefaultColor {
+  background: #f9fafe;
+  color: #7e88c3;
 }

@@ -1,3 +1,34 @@
 .InvoicesList {
   padding-top: 45px;
 }
+
+.EmptyInvoicesList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.EmptyInvoicesList img {
+  width: 242px;
+}
+
+.EmptyInvoicesList h3 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -0.625px;
+  color: #0c0e16;
+}
+
+.EmptyInvoicesList p {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: -0.25px;
+  color: #888eb0;
+}

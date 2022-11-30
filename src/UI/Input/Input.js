@@ -20,7 +20,7 @@ const Input = ({ data, onChange, onBlur }) => {
     <label htmlFor={data.id} className={classes.join(" ")}>
       <span>{data.label}</span>
       <input
-        type="text"
+        type={data.type}
         value={data.value}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}

@@ -155,17 +155,27 @@ const AddInvoiceForm = () => {
         <div className={`${styles.Controls} ${InvoiceFormControl}`}>
           {!invoiceId && (
             <>
-              <Button onClick={onDiscardBtnClickHandler}>Discard</Button>
-              <Button onClick={onDraftSaveBtnClickHandler}>
+              <div className={styles.ControlsLeftBtn}>
+                <Button onClick={onDiscardBtnClickHandler} color="default">
+                  Discard
+                </Button>
+              </div>
+              <Button onClick={onDraftSaveBtnClickHandler} color="grey">
                 Save as Draft
               </Button>
-              <Button onClick={onSaveBtnClickHandler}>Save & Send</Button>
+              <Button onClick={onSaveBtnClickHandler} color="active">
+                Save & Send
+              </Button>
             </>
           )}
           {invoiceId && (
             <>
-              <Button onClick={onDiscardBtnClickHandler}>Cancel</Button>
-              <Button onClick={onSaveEditsBtnClickHandler}>Save Changes</Button>
+              <Button onClick={onDiscardBtnClickHandler} color="default">
+                Cancel
+              </Button>
+              <Button onClick={onSaveEditsBtnClickHandler} color="active">
+                Save Changes
+              </Button>
             </>
           )}
         </div>
