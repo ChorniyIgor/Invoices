@@ -1,6 +1,7 @@
 # Invoice app
 
 My challenge was to build out this invoicing application and get it looking as close to the design as possible.
+This project is currently being developed. It is necessary to add improvements to the design so that the app can be used on the phones as well. I also planing to add a theme switcher. In addition, I plan to use the localstrot to save data.
 
 ## Table of contents
 
