@@ -31,7 +31,7 @@ My challenge was to build out this invoicing application and get it looking as c
 
 ### Link
 
-- Live Site URL: [chorniyigor.github.io/Invoice](https://chorniyigor.github.io/Invoice)
+- Live Site URL: [chorniyigor.github.io/Invoices](https://chorniyigor.github.io/Invoices)
 
 ### Built with
 
