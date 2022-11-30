@@ -17,25 +17,8 @@ import useForm from "../useForm";
 import useTaskList from "../UseTaskList";
 import styles from "./InvoiceForm.module.css";
 import TaskList from "./TaskList";
-
-const initialState = {
-  fields: {
-    streetAdress: "",
-    city: "",
-    postCode: "",
-    country: "",
-    clientName: "",
-    clientEmail: "",
-    clientStreetAddress: "",
-    clientCity: "",
-    clientPostCode: "",
-    clientCountry: "",
-    invoiceDate: "",
-    paymentTerms: "",
-    projectDescription: "",
-  },
-  taskList: [],
-};
+import Select from "../../../UI/Select/Select";
+import { formInitialState } from "../invoiceForm-slice";
 
 const AddInvoiceForm = () => {
   const dispatch = useDispatch();
@@ -46,7 +29,7 @@ const AddInvoiceForm = () => {
     invoicesSelector.selectById(state, invoiceId)
   );
 
-  const [formState, setFormState] = useState(invoice || initialState);
+  const [formState, setFormState] = useState(invoice || formInitialState);
   const FormContext = useContext(SideFormContext);
 
   const saveDataOnBlur = (field, evt) => {
@@ -70,7 +53,7 @@ const AddInvoiceForm = () => {
     clientPostCodeInput,
     clientCountryInput,
     invoiceDateInput,
-    paymentTermsInput,
+    paymentTermsSelect,
     projectDescriptionInput,
   } = useForm(formState, saveDataOnBlur);
 
@@ -82,14 +65,14 @@ const AddInvoiceForm = () => {
 
   const onDiscardBtnClickHandler = (evt) => {
     evt.preventDefault();
-    setFormState(initialState);
+    setFormState(formInitialState);
     FormContext.closeHandler();
   };
 
   const onDraftSaveBtnClickHandler = (evt) => {
     evt.preventDefault();
     dispatch(saveNewInvoice({ ...formState, id: nanoid(6), status: "draft" }));
-    setFormState(initialState);
+    setFormState(formInitialState);
     FormContext.closeHandler();
   };
 
@@ -98,15 +81,14 @@ const AddInvoiceForm = () => {
     dispatch(
       saveNewInvoice({ ...formState, id: nanoid(6), status: "pending" })
     );
-    setFormState(initialState);
+    setFormState(formInitialState);
     FormContext.closeHandler();
   };
 
   const onSaveEditsBtnClickHandler = (evt) => {
     evt.preventDefault();
-    console.log(formState);
     dispatch(editInvoice({ ...formState }));
-    setFormState(initialState);
+    setFormState(formInitialState);
     FormContext.closeHandler();
   };
 
@@ -140,7 +122,7 @@ const AddInvoiceForm = () => {
         </div>
         <div className={styles.AddInvoiceForm__TwoRows}>
           <Input data={invoiceDateInput} />
-          <Input data={paymentTermsInput} />
+          <Select data={paymentTermsSelect} />
         </div>
         <div className={styles.AddInvoiceForm__OneRow}>
           <Input data={projectDescriptionInput} />

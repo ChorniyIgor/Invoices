@@ -4,8 +4,8 @@
   border-radius: 8px;
   margin-bottom: 16px;
   padding: 29px 48px 29px 32px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -56,7 +56,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  text-align: right;
+  text-align: center;
   letter-spacing: -0.8px;
   color: #0c0e16;
 }

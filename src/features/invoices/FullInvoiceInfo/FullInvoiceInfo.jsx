@@ -1,7 +1,12 @@
+import DateElement from "../../../UI/DateElement/DateElement";
 import TaskListBoard from "../TaskListBoard/TaskListBoard";
 import styles from "./FullInvoiceInfo.module.css";
 
 const FullInvoiceInfo = ({ invoice }) => {
+  const PaymentDueDate =
+    new Date(invoice.fields.invoiceDate).getTime() +
+    1000 * 60 * 60 * 24 * invoice.fields.paymentTerms;
+
   return (
     <div className={styles.FullInvoiceInfo}>
       <div className={styles.FullInvoiceInfoHeader}>
@@ -30,13 +35,13 @@ const FullInvoiceInfo = ({ invoice }) => {
           <div>
             <span className={styles.FullInvoiceInfoSmall}>Invoice Date</span>
             <span className={styles.FullInvoiceInfoMarked}>
-              {invoice.fields.invoiceDate}
+              <DateElement time={invoice.fields.invoiceDate} />
             </span>
           </div>
           <div>
             <span className={styles.FullInvoiceInfoSmall}>Payment Due</span>
             <span className={styles.FullInvoiceInfoMarked}>
-              {invoice.fields.paymentTerms}
+              <DateElement time={PaymentDueDate} />
             </span>
           </div>
         </div>

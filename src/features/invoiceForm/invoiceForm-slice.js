@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export const formInitialState = {
   fields: {
     streetAdress: "",
     city: "",
@@ -13,7 +13,7 @@ const initialState = {
     clientPostCode: "",
     clientCountry: "",
     invoiceDate: "",
-    paymentTerms: "",
+    paymentTerms: "7",
     projectDescription: "",
   },
   taskList: [],
@@ -21,7 +21,7 @@ const initialState = {
 
 const invoiceFormSlice = createSlice({
   name: "@@addForm",
-  initialState,
+  initialState: formInitialState,
   reducers: {
     saveNewFormValue: (state, action) => {
       state.fields[action.payload.field] = action.payload.value;
@@ -29,7 +29,7 @@ const invoiceFormSlice = createSlice({
     saveUpdatedTaskList: (state, action) => {
       state.taskList = action.payload;
     },
-    discardForm: () => initialState,
+    discardForm: () => formInitialState,
   },
 });
 

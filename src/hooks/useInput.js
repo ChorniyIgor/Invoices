@@ -8,6 +8,7 @@ export const useInput = (settings) => {
 
   let value = settings.initialValue;
   if (settings.initialValue === undefined) value = "";
+  if (settings.valuePrepare) value = settings.valuePrepare(value);
 
   const [input, setInput] = useState({
     value: value,

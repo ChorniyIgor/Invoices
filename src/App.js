@@ -1,17 +1,13 @@
 import SideBar from "./components/SideBar/SideBar";
 import styles from "./App.module.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import DashBoard from "./components/DashboardContainer/DashboardContainer";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { loadInvoices } from "./features/invoices/invoices-slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import SideFormBar from "./components/SideFormBar/SideFormBar";
 import InvoiceForm from "./features/invoiceForm/InvoiceForm/InvoiceForm";
 import InvoicePage from "./components/InvoicePage/InvoicePage";
-import TopBar from "./components/TopBar/TopBar";
-import InvoicesList from "./features/invoices/InvoicesList/InvoicesList";
-import { getFiltratedInvoices } from "./features/invoices/invoices-selectors";
-import { getFilterValue } from "./features/filter/filter-selectors";
+import MainPage from "./components/MainPage/MainPage";
 
 const DAMMY = [
   {
@@ -28,8 +24,8 @@ const DAMMY = [
       clientCity: "Bradford",
       clientPostCode: "BD1 9PB",
       clientCountry: "United Kingdom",
-      invoiceDate: 1669631850843,
-      paymentTerms: 1669631850843,
+      invoiceDate: "2022-11-13",
+      paymentTerms: 30,
       projectDescription: "Graphic Design",
     },
     taskList: [
@@ -61,8 +57,8 @@ const DAMMY = [
       clientCity: "Bradford",
       clientPostCode: "BD1 9PB",
       clientCountry: "United Kingdom",
-      invoiceDate: 1669631850843,
-      paymentTerms: 1669631850843,
+      invoiceDate: "2022-11-13",
+      paymentTerms: 7,
       projectDescription: "Graphic Design",
     },
     taskList: [
@@ -94,8 +90,8 @@ const DAMMY = [
       clientCity: "Bradford",
       clientPostCode: "BD1 9PB",
       clientCountry: "United Kingdom",
-      invoiceDate: 1669631850843,
-      paymentTerms: 1669631850843,
+      invoiceDate: "2022-11-13",
+      paymentTerms: 30,
       projectDescription: "Graphic Design",
     },
     taskList: [
@@ -117,11 +113,6 @@ const DAMMY = [
 
 const App = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilterValue);
-
-  const filratedInvoices = useSelector((state) =>
-    getFiltratedInvoices(state, filter)
-  );
 
   const navigate = useNavigate();
 
@@ -139,53 +130,29 @@ const App = () => {
         <SideBar />
 
         <Routes>
-          <Route
-            path="/addInvoice"
-            element={
-              <>
-                <SideFormBar hide={invoiceFormCloseHandler} title="New Invoice">
+          <Route path="/" element={<MainPage />}>
+            <Route
+              path="addInvoice"
+              element={
+                <SideFormBar hide={invoiceFormCloseHandler}>
                   <InvoiceForm />
                 </SideFormBar>
-                <DashBoard>
-                  <TopBar />
-                  <InvoicesList invoices={filratedInvoices} />
-                </DashBoard>
-              </>
-            }
-          />
+              }
+            />
+          </Route>
 
-          <Route
-            path="/"
-            element={
-              <DashBoard>
-                <TopBar />
-                <InvoicesList invoices={filratedInvoices} />
-              </DashBoard>
-            }
-          />
-          <Route
-            path="/invoice/:id"
-            element={
-              <DashBoard>
-                <InvoicePage />
-              </DashBoard>
-            }
-          />
-          <Route
-            path="/invoice/:id/edit"
-            element={
-              <>
-                <SideFormBar hide={invoiceFormCloseHandler} title="New Invoice">
+          <Route path="/invoice/:id" element={<InvoicePage />}>
+            <Route
+              path="edit"
+              element={
+                <SideFormBar hide={invoiceFormCloseHandler}>
                   <InvoiceForm />
                 </SideFormBar>
-                <DashBoard>
-                  <InvoicePage />
-                </DashBoard>
-              </>
-            }
-          />
+              }
+            />
+          </Route>
 
-          {/* <Route path="*" element={<Navigate to="/" />} /> */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </>

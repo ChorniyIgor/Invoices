@@ -1,18 +1,23 @@
 import styles from "./Select.module.css";
 
-const Select = (props) => {
+const Select = ({ data }) => {
   return (
-    <select
-      className={styles.Select}
-      defaultValue={props.defaultValue}
-      onChange={props.onChange}
-    >
-      {props.options.map((option) => (
-        <option key={option.key} value={option.key}>
-          {option.title}
-        </option>
-      ))}
-    </select>
+    <label htmlFor={data.id} className={styles.Select}>
+      <span>{data.label}</span>
+      <select
+        className={styles.Select}
+        onChange={data.onChangeHandler}
+        onBlur={data.onBlurHandler}
+        id={data.id}
+        defaultValue={data.value}
+      >
+        {data.options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.title}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 };
 

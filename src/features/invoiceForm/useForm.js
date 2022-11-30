@@ -1,4 +1,5 @@
 import { useInput } from "../../hooks/useInput";
+import { useSelect } from "../../hooks/useSelect";
 const validate = (value) => {
   return value.length > 1;
 };
@@ -82,10 +83,15 @@ const useForm = (invoice, onInputBlurHandler) => {
     onblur: onInputBlurHandler.bind(null, "invoiceDate"),
   });
 
-  const paymentTermsInput = useInput({
+  const paymentTermsSelect = useSelect({
+    options: [
+      { title: "Next 7 Days", value: 7 },
+      { title: "Next 30 Days", value: 30 },
+      { title: "Next 3 Month", value: 90 },
+      { title: "Next Year", value: 365 },
+    ],
     initialValue: invoice.fields.paymentTerms,
     label: "Payment Terms",
-    type: "select",
     onblur: onInputBlurHandler.bind(null, "paymentTerms"),
   });
 
@@ -108,7 +114,7 @@ const useForm = (invoice, onInputBlurHandler) => {
     clientPostCodeInput,
     clientCountryInput,
     invoiceDateInput,
-    paymentTermsInput,
+    paymentTermsSelect,
     projectDescriptionInput,
   };
 };
