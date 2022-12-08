@@ -1,20 +1,20 @@
 .Select select {
-  background: #ffffff;
-  border: 1px solid #dfe3fa;
+  background: var(--colors-main_light);
   border-radius: 4px;
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: var(--colors-text);
   padding: 16px 17px;
   display: block;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #dfe3fa;
+  border: var(--color-border);
   border-radius: 4px;
   margin-bottom: 24px;
+  outline: none;
 }
 
 .Select span {

@@ -9,7 +9,7 @@
   line-height: 18px;
   letter-spacing: -0.229167px;
   text-align: left;
-  color: #7e88c3;
+  color: var(--colors-text-light);
   padding: 16px;
 }
 
@@ -19,7 +19,7 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: var(--colors-text);
   padding: 16px;
 }
 
@@ -42,12 +42,12 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7e88c3;
+  color: var(--colors-text-light);
 }
 
 .TaskListBoard table {
   width: 100%;
-  background: #f9fafe;
+  background: var(--colors-main_super_light);
   padding: 16px 16px 24px 16px;
 }
 

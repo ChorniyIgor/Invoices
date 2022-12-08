@@ -44,13 +44,12 @@
 }
 
 .LightColor {
-  background: #f9fafe;
-  color: #7e88c3;
+  background: var(--colors-grey);
+  color: var(--colors-text-light);
 }
 
 .LightColor:hover {
-  background: #dfe3fa;
-  color: #7e88c3;
+  opacity: 0.8;
 }
 
 .InvoiceColor {
@@ -73,6 +72,6 @@
 }
 
 .DefaultColor {
-  background: #f9fafe;
-  color: #7e88c3;
+  background: var(--color-background-white);
+  color: var(--colors-text-light);
 }

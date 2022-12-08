@@ -43,10 +43,10 @@
 }
 
 .StatusLabelDraft {
-  background: rgba(55, 59, 83, 0.06);
-  color: #373b53;
+  background: var(--colors-background-light);
+  color: var(--colors-text);
 }
 
 .StatusLabelDraft:before {
-  background: #373b53;
+  background: var(--colors-text);
 }

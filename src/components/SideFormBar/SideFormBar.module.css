@@ -19,7 +19,7 @@
 .SideFormBar {
   position: absolute;
   width: 70vw;
-  background: white;
+  background: var(--colors-sidebar);
   z-index: 2;
   height: 100vh;
   left: -100vw;

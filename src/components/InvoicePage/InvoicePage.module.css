@@ -6,7 +6,8 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: var(--colors-text);
+  background: transparent;
   display: inline-block;
   margin-bottom: 32px;
   padding-left: 16px;

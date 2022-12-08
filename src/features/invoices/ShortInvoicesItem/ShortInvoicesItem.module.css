@@ -1,5 +1,5 @@
 .ShortInvoicesItem {
-  background: #ffffff;
+  background: var(--colors-main_light);
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
   border-radius: 8px;
   margin-bottom: 16px;

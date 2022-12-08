@@ -1,3 +1,13 @@
 .ThemeModSwitcher {
   padding: 32px;
+  cursor: pointer;
+}
+
+.ThemeModSwitcher img {
+  width: 20px;
+  height: 20px;
+}
+
+.ThemeModSwitcher:hover {
+  opacity: 0.8;
 }

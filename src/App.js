@@ -8,6 +8,7 @@ import SideFormBar from "./components/SideFormBar/SideFormBar";
 import InvoiceForm from "./features/invoiceForm/InvoiceForm/InvoiceForm";
 import InvoicePage from "./components/InvoicePage/InvoicePage";
 import MainPage from "./components/MainPage/MainPage";
+import useThemeMode from "./features/theme/useThemeMode";
 
 const DAMMY = [
   {
@@ -123,6 +124,8 @@ const App = () => {
   const invoiceFormCloseHandler = () => {
     navigate(-1);
   };
+
+  useThemeMode();
 
   return (
     <>
