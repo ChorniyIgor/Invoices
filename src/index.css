@@ -93,7 +93,6 @@ body[data-theme="dark"] {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  border-radius: 4px;
   background: var(--color-background);
 }
 
